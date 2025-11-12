@@ -1,22 +1,24 @@
 extends State
 class_name AttackState
 
-@onready var idle_state: IdleState = $"../IdleState"
+@export var attack_shape: Shape2D
 @onready var move_state: MoveState = $"../MoveState"
 
-func state_process(delta: float) -> void:
+func set_area_shape():
+	attack_area.get_child(0).shape = attack_shape
+	attack_area.position.x = attack_shape.size.x/2.0
+
+func wait(time: int):
+	# In millis.
+	await get_tree().create_timer(time).timeout
+
+func on_enter():
+	set_area_shape()
+	wait(10)
 	
-	var dir = Input.get_axis("left", "right")
-	if dir != 0:
-		player.velocity.x = lerp(player.velocity.x, dir * player.speed, player.acceleration)
-	else:
-		player.velocity.x = lerp(player.velocity.x, 0.0, player.friction)
+	for i in attack_area.get_overlapping_bodies():
+		i.hurt()
 	
-	player.move_and_slide()
+	wait(10)
 	
-	if player.is_on_floor():
-		if player.velocity == Vector2.ZERO:
-			next_state = idle_state
-		else:
-			next_state = move_state
-	
+	next_state = move_state

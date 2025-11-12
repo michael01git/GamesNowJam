@@ -3,6 +3,7 @@ class_name State
 
 var player: CharacterBody2D
 var animation_tree: AnimationTree
+var attack_area: Area2D
 
 ## The next state. StateMachine looks at this and if its not null changes to that state.
 var next_state: State

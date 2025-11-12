@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://7csw52nfcajk"]
+[gd_scene load_steps=7 format=4 uid="uid://7csw52nfcajk"]
 
 [ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://sidescroller/player.tscn" id="1_6u8ba"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://icon.svg" id="1_cdx27"]
 [ext_resource type="Script" uid="uid://b207qrm3jtop8" path="res://sidescroller/CameraFollower.gd" id="3_kj1tp"]
+[ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://enemy_base.tscn" id="4_wk5ow"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdx27"]
 texture = ExtResource("1_cdx27")
@@ -35,3 +36,6 @@ tile_set = SubResource("TileSet_kj1tp")
 position = Vector2(0, -138)
 script = ExtResource("3_kj1tp")
 player = NodePath("../player")
+
+[node name="EnemyBase" parent="." instance=ExtResource("4_wk5ow")]
+position = Vector2(359, 70)

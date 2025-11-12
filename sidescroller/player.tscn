@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ddmov0byk4nyt"]
+[gd_scene load_steps=11 format=3 uid="uid://ddmov0byk4nyt"]
 
 [ext_resource type="Script" uid="uid://7u3vo1rhfj4i" path="res://sidescroller/player.gd" id="1_87lbx"]
 [ext_resource type="Script" uid="uid://dd0omw0aw75k3" path="res://sidescroller/state_label.gd" id="2_648is"]
@@ -9,15 +9,27 @@
 [ext_resource type="Script" uid="uid://b0hfnsuo7dsry" path="res://sidescroller/air_state.gd" id="5_ow5jq"]
 [ext_resource type="Script" uid="uid://b1ygtesn6g0c6" path="res://sidescroller/attack_state.gd" id="6_gw5kw"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gw5kw"]
+size = Vector2(250, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pc2ch"]
 size = Vector2(121, 127)
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_87lbx")
 friction = 0.2
 acceleration = 0.5
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="AttackArea" type="Area2D" parent="."]
+z_index = 1
+collision_layer = 0
+collision_mask = 4
+
+[node name="AttackAreaShape" type="CollisionShape2D" parent="AttackArea"]
+debug_color = Color(0.9925502, 0, 0.25687188, 0.41960785)
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("2_ilmk5")
@@ -38,6 +50,7 @@ metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="AttackState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_gw5kw")
+attack_shape = SubResource("RectangleShape2D_gw5kw")
 metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

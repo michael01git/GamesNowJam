@@ -6,6 +6,7 @@ extends Node
 @export var current_state: State
 
 @onready var animation_tree: AnimationTree = $"../AnimationTree"
+@onready var attack_area: Area2D = $"../AttackArea"
 
 func _ready() -> void:
 	## Give the states some common variables, such as the player.
@@ -13,6 +14,7 @@ func _ready() -> void:
 		if i is State:
 			i.player = player
 			i.animation_tree = animation_tree
+			i.attack_area = attack_area
 		else:
 			push_warning("StateMachine has a non state in it.")
 
