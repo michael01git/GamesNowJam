@@ -24,7 +24,7 @@ acceleration = 0.5
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 
-[node name="Pivot" type="Node2D" parent="."]
+[node name="Pivot" type="Sprite2D" parent="."]
 
 [node name="AttackArea" type="Area2D" parent="Pivot"]
 z_index = 1

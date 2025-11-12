@@ -16,8 +16,12 @@ func on_enter():
 	set_area_shape()
 	wait(10)
 	
+	#Deal damage to enemies
 	for i in attack_area.get_overlapping_bodies():
-		i.hurt()
+		for c in i.get_children():
+			if c.is_in_group("HealthComponent"):
+				c.dealt_damage(player, 1)
+				break
 	
 	wait(10)
 	

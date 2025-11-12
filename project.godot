@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 PlayerStatsManager="*res://player_stats_manager.gd"
 
+[global_group]
+
+HealthComponent=""
+
 [input]
 
 up={

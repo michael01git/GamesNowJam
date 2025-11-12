@@ -1,5 +1,18 @@
 extends CharacterBody2D
 
-func hurt():
-	print("OUCH")
-	PlayerStatsManager.add_to_stat("score", 100)
+@onready var deathRoll: PackedScene = preload("res://sidescroller/ridgidbody.tscn")
+@export var gravity = 4000
+
+func _process(delta: float) -> void:
+	velocity.y += gravity * delta
+	move_and_slide()
+
+func _on_health_component_death(attacker: Variant) -> void:
+	print(attacker)
+	
+	var c = deathRoll.instantiate()
+	c.global_position = global_position
+	get_parent().add_child(c)
+	c.launch(attacker)
+	
+	queue_free()

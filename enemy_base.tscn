@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://blcwfmlm0epe2"]
+[gd_scene load_steps=5 format=3 uid="uid://blcwfmlm0epe2"]
 
 [ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://enemy_base.gd" id="1_8nqel"]
+[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://health_component.gd" id="2_8njqh"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://icon.svg" id="2_edvsq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8njqh"]
@@ -10,8 +11,14 @@ radius = 77.05842
 collision_layer = 4
 script = ExtResource("1_8nqel")
 
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_8njqh")
+metadata/_custom_type_script = "uid://e5jut15hkmv6"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8njqh")
 
 [node name="Icon" type="Sprite2D" parent="."]
 texture = ExtResource("2_edvsq")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

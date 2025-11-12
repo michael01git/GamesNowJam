@@ -6,7 +6,7 @@ extends Node
 @export var current_state: State
 
 @onready var animation_tree: AnimationTree = $"../AnimationTree"
-@onready var attack_area: Area2D = $"../AttackArea"
+@onready var attack_area: Area2D = $"../Pivot/AttackArea"
 
 func _ready() -> void:
 	## Give the states some common variables, such as the player.

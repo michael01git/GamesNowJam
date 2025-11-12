@@ -19,6 +19,9 @@ size = Vector2(121, 127)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_87lbx")
+speed = null
+jump_speed = null
+gravity = null
 friction = 0.2
 acceleration = 0.5
 
