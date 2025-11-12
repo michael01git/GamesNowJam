@@ -17,6 +17,7 @@ size = Vector2(121, 127)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_87lbx")
 friction = 0.2
 acceleration = 0.5

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpj2d3dnhsv1h"]
+
+[ext_resource type="Script" uid="uid://b207qrm3jtop8" path="res://sidescroller/CameraFollower.gd" id="1_n8eg2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wk5ow"]
+normal = Vector2(1, 0)
+distance = 10.0
+
+[node name="CameraFollower" type="Camera2D" node_paths=PackedStringArray("player")]
+script = ExtResource("1_n8eg2")
+player = NodePath("")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-579, 0)
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_wk5ow")
