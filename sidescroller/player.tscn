@@ -1,13 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddmov0byk4nyt"]
+[gd_scene load_steps=10 format=3 uid="uid://ddmov0byk4nyt"]
 
 [ext_resource type="Script" uid="uid://7u3vo1rhfj4i" path="res://sidescroller/player.gd" id="1_87lbx"]
+[ext_resource type="Script" uid="uid://dd0omw0aw75k3" path="res://sidescroller/state_label.gd" id="2_648is"]
+[ext_resource type="Script" uid="uid://bkk4s3kklivq4" path="res://sidescroller/PSM/player_state_machine.gd" id="2_ilmk5"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://icon.svg" id="2_wbgju"]
+[ext_resource type="Script" uid="uid://cyrulapc13n6j" path="res://sidescroller/PSM/state_idle.gd" id="3_pkcoo"]
+[ext_resource type="Script" uid="uid://cjavn2idyp2ow" path="res://sidescroller/move_state.gd" id="4_pkcoo"]
+[ext_resource type="Script" uid="uid://b0hfnsuo7dsry" path="res://sidescroller/air_state.gd" id="5_ow5jq"]
+[ext_resource type="Script" uid="uid://b1ygtesn6g0c6" path="res://sidescroller/attack_state.gd" id="6_gw5kw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pc2ch"]
 size = Vector2(121, 127)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_87lbx")
+friction = 0.2
+acceleration = 0.5
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "current_state")]
+script = ExtResource("2_ilmk5")
+player = NodePath("..")
+current_state = NodePath("MoveState")
+
+[node name="IdleState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("3_pkcoo")
+metadata/_custom_type_script = "uid://cyrulapc13n6j"
+
+[node name="MoveState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("4_pkcoo")
+metadata/_custom_type_script = "uid://crtk80w68agh4"
+
+[node name="AirState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("5_ow5jq")
+metadata/_custom_type_script = "uid://crtk80w68agh4"
+
+[node name="AttackState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("6_gw5kw")
+metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
@@ -18,3 +49,18 @@ texture = ExtResource("2_wbgju")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
+
+[node name="StateLabel" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -291.0
+offset_top = -170.0
+offset_right = -290.0
+offset_bottom = -103.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 48
+script = ExtResource("2_648is")
