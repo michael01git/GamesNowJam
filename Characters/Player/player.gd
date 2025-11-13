@@ -8,8 +8,19 @@ extends CharacterBody2D
 
 @onready var pivot: Node2D = $Pivot
 
+func get_vel(delta: float):
+	var dir = Input.get_axis("left", "right")
+	if dir != 0:
+		velocity.x = lerp(velocity.x, dir * speed, acceleration)
+	else:
+		velocity.x = lerp(velocity.x, 0.0, friction)
+
+
 func _process(delta: float) -> void:
 	velocity.y += gravity * delta
+	get_vel(delta)
+	
+	move_and_slide()
 	
 	if velocity.x > 0:
 		pivot.scale = Vector2(1,1)

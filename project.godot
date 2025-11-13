@@ -13,11 +13,11 @@ config_version=5
 config/name="GamesNowJam"
 run/main_scene="uid://7csw52nfcajk"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Assets/icon.svg"
 
 [autoload]
 
-PlayerStatsManager="*res://player_stats_manager.gd"
+PlayerStatsManager="*res://Characters/Player/player_stats_manager.gd"
 
 [global_group]
 

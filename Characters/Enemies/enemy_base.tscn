@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://blcwfmlm0epe2"]
 
-[ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://enemy_base.gd" id="1_8nqel"]
-[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://health_component.gd" id="2_8njqh"]
-[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://icon.svg" id="2_edvsq"]
+[ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://Characters/Enemies/enemy_base.gd" id="1_8nqel"]
+[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://Characters/Player/States/health_component.gd" id="2_8njqh"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_edvsq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8njqh"]
 radius = 77.05842

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwqfhy3fi0wee"]
 
-[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://icon.svg" id="1_0s428"]
-[ext_resource type="Script" uid="uid://7agsphof0xso" path="res://sidescroller/ridgidbody.gd" id="1_2ij1x"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_0s428"]
+[ext_resource type="Script" uid="uid://7agsphof0xso" path="res://Characters/Enemies/ridgidbody.gd" id="1_2ij1x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wk5ow"]
 bounce = 0.25

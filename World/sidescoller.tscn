@@ -1,12 +1,12 @@
 [gd_scene load_steps=7 format=4 uid="uid://7csw52nfcajk"]
 
-[ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://sidescroller/player.tscn" id="1_6u8ba"]
-[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://icon.svg" id="1_cdx27"]
-[ext_resource type="PackedScene" uid="uid://dpj2d3dnhsv1h" path="res://sidescroller/camera_follower.tscn" id="3_wk5ow"]
-[ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://enemy_base.tscn" id="4_wk5ow"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_xknys"]
+[ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://Characters/Player/player.tscn" id="2_pnsy1"]
+[ext_resource type="PackedScene" uid="uid://dpj2d3dnhsv1h" path="res://World/camera_follower.tscn" id="3_1mqmm"]
+[ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://Characters/Enemies/enemy_base.tscn" id="4_xpvqr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdx27"]
-texture = ExtResource("1_cdx27")
+texture = ExtResource("1_xknys")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -22,9 +22,9 @@ sources/1 = SubResource("TileSetAtlasSource_cdx27")
 [node name="icon" type="Sprite2D" parent="."]
 position = Vector2(432, 291)
 scale = Vector2(100, 100)
-texture = ExtResource("1_cdx27")
+texture = ExtResource("1_xknys")
 
-[node name="player" parent="." instance=ExtResource("1_6u8ba")]
+[node name="player" parent="." instance=ExtResource("2_pnsy1")]
 speed = 800
 jump_speed = 1200
 
@@ -32,13 +32,13 @@ jump_speed = 1200
 tile_map_data = PackedByteArray("AAD9/wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAD8/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAALAAEAAQAAAAAAAAAMAAEAAQAAAAAAAAANAAEAAQAAAAAAAAAOAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD4/wEAAQAAAAAAAAD5/wEAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_kj1tp")
 
-[node name="CameraFollower" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_wk5ow")]
+[node name="CameraFollower" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_1mqmm")]
 position = Vector2(0, -138)
 player = NodePath("../player")
 follow_speed = 0.25
 
-[node name="EnemyBase" parent="." instance=ExtResource("4_wk5ow")]
+[node name="EnemyBase" parent="." instance=ExtResource("4_xpvqr")]
 position = Vector2(359, 70)
 
-[node name="EnemyBase2" parent="." instance=ExtResource("4_wk5ow")]
+[node name="EnemyBase2" parent="." instance=ExtResource("4_xpvqr")]
 position = Vector2(-127, 0)

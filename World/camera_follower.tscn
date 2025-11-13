@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpj2d3dnhsv1h"]
 
-[ext_resource type="Script" uid="uid://b207qrm3jtop8" path="res://sidescroller/CameraFollower.gd" id="1_n8eg2"]
+[ext_resource type="Script" uid="uid://b207qrm3jtop8" path="res://World/CameraFollower.gd" id="1_n8eg2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_wk5ow"]
 normal = Vector2(1, 0)

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var deathRoll: PackedScene = preload("res://sidescroller/ridgidbody.tscn")
+@onready var deathRoll: PackedScene = preload("res://Characters/Enemies/ridgidbody.tscn")
 @export var gravity = 4000
 
 func _process(delta: float) -> void:
