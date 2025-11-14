@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://4m2bbmqahpgo"]
+
+[ext_resource type="Script" uid="uid://mrgktj4lvva8" path="res://Managers/audio_manager.gd" id="1_rt3xg"]
+
+[sub_resource type="Animation" id="Animation_ehfkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrackPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rt3xg"]
+resource_name = "switch"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TrackPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -80.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_next_track"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ehfkt"]
+_data = {
+&"RESET": SubResource("Animation_ehfkt"),
+&"switch": SubResource("Animation_rt3xg")
+}
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_rt3xg")
+
+[node name="SwitchTrackAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ehfkt")
+}
+
+[node name="TrackPlayer" type="AudioStreamPlayer" parent="."]

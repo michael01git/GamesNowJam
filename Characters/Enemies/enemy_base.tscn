@@ -18,10 +18,11 @@ script = ExtResource("2_8njqh")
 healthAmount = 2
 metadata/_custom_type_script = "uid://e5jut15hkmv6"
 
-[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "pivot")]
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "downRay", "pivot")]
 script = ExtResource("3_yi0xc")
 enemy = NodePath("..")
 hitRay = NodePath("../Pivot/HitRay")
+downRay = NodePath("../Pivot/DownRay")
 pivot = NodePath("../Pivot")
 speed = 50000
 
@@ -29,6 +30,10 @@ speed = 50000
 
 [node name="HitRay" type="RayCast2D" parent="Pivot"]
 target_position = Vector2(-100, 0)
+
+[node name="DownRay" type="RayCast2D" parent="Pivot"]
+position = Vector2(-64, 0)
+target_position = Vector2(0, 100)
 
 [node name="Icon" type="Sprite2D" parent="Pivot"]
 texture = ExtResource("2_edvsq")

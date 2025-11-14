@@ -8,11 +8,20 @@ extends CharacterBody2D
 @export_range(0.0 , 1.0) var acceleration = 0.25
 @export var dash_speed = 2500
 @export var maxDashTime: float = 0.2
+@export_range(0.0 , 1.0) var cameraZoom = 1.0
 
+
+@onready var camera_max_x: Node2D = get_tree().get_first_node_in_group("CameraMaxX")
+@onready var camera_2d: Camera2D = $Camera2D
 @onready var pivot: Node2D = $Pivot
 @onready var player_state_machine: Node = $PlayerStateMachine
 @onready var hurt_state: Node = $PlayerStateMachine/HurtState
 @onready var hit_box: Area2D = $HitBox
+
+func _ready() -> void:
+	camera_2d.zoom = Vector2(cameraZoom, cameraZoom)
+	if camera_max_x != null:
+		camera_2d.limit_right = camera_max_x.global_position.x
 
 # This is a dumb implementation of damage. We scan for all enemies in an area and deal damage if they appear.
 func hitbox():

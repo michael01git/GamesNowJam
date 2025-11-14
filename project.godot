@@ -18,14 +18,15 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 PlayerStatsManager="*res://Characters/Player/player_stats_manager.gd"
-AudioManager="*res://Managers/audio_manager.gd"
 GameManager="*res://Managers/game_manager.gd"
+AudioManager="*res://Managers/audio_manager.tscn"
 
 [global_group]
 
 HealthComponent=""
 Player=""
 CullPoint=""
+CameraMaxX=""
 
 [input]
 

@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://drxk0jp776ouw"]
+
+[ext_resource type="Script" uid="uid://dvtho21q3d6yn" path="res://Menus/menu_script.gd" id="1_pa7pu"]
+[ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_4qieb"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="3_4h4bp"]
+
+[node name="WinScene" type="Control" node_paths=PackedStringArray("next_scene_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pa7pu")
+next_scene_button = NodePath("StorySceneManager/StoryScene/Button")
+next_scene_path = "res://Menus/main_menu.tscn"
+
+[node name="StorySceneManager" type="Control" parent="." node_paths=PackedStringArray("picNode", "textNode", "nextButton", "sceneChangerNode")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4qieb")
+picArray = Array[CompressedTexture2D]([ExtResource("3_4h4bp")])
+textArray = Array[String](["U win"])
+picNode = NodePath("StoryScene/TextureRect")
+textNode = NodePath("StoryScene/Label")
+nextButton = NodePath("StoryScene/Button")
+sceneChangerNode = NodePath("..")
+
+[node name="StoryScene" type="VBoxContainer" parent="StorySceneManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="StorySceneManager/StoryScene"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Story"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="StorySceneManager/StoryScene"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_4h4bp")
+
+[node name="Button" type="Button" parent="StorySceneManager/StoryScene"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Next"

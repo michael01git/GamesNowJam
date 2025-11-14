@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_p1qee"]
 [ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_xbekp"]
 
-[node name="MainMenu" type="Control"]
+[node name="StoryScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +14,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_lp6dq")
-next_scene_path = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/World/sidescoller.tscn"
+next_scene_path = "res://World/sidescoller.tscn"
 
 [node name="StorySceneManager" type="Control" parent="." node_paths=PackedStringArray("picNode", "textNode", "nextButton", "sceneChangerNode")]
 layout_mode = 1

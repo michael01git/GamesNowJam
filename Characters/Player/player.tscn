@@ -28,6 +28,8 @@ friction = 0.2
 acceleration = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_bottom = -25
 limit_smoothed = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
@@ -88,6 +90,7 @@ metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="HurtState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_yhol4")
+death_scene = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/Menus/deathScene.tscn"
 metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

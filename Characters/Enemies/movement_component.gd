@@ -6,6 +6,7 @@ class_name MovementComponent
 @export_enum("move_left", "follow_player", "move_between_points") var state: int
 @export var enemy: CharacterBody2D
 @export var hitRay: RayCast2D
+@export var downRay: RayCast2D
 @export var pivot: Node2D
 @export var speed: int = 100
 
@@ -19,7 +20,7 @@ func _process(delta: float) -> void:
 			move_left(delta)
 
 func move_left(delta: float):
-	if hitRay.is_colliding():
+	if hitRay.is_colliding() or !downRay.is_colliding():
 		dir = -dir
 		pivot.scale = Vector2(-pivot.scale.x, 1)
 	

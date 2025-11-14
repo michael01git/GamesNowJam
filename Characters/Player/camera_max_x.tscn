@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cwilny50itflm"]
+
+[node name="CameraMaxX" type="Node2D" groups=["CameraMaxX"]]

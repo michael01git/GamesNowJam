@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blykr1q7c7nvv"
+path="res://.godot/imported/Sugar Rush Title OST - Demo.mp3-c15f44c380ab3e3c21c71afce6ea51e4.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sugar Rush Title OST - Demo.mp3"
+dest_files=["res://.godot/imported/Sugar Rush Title OST - Demo.mp3-c15f44c380ab3e3c21c71afce6ea51e4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

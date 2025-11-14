@@ -25,33 +25,37 @@ size = Vector2(104, 260)
 [node name="sidescoller" type="Node2D"]
 
 [node name="Boss" parent="." node_paths=PackedStringArray("RoomSizeCollider", "KillArea") instance=ExtResource("1_dqpi3")]
-position = Vector2(-3, -346)
-next_scene_path = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/Menus/main_menu.tscn"
+position = Vector2(1025, -603)
+next_scene_path = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/Menus/winScene.tscn"
 RoomSizeCollider = NodePath("../RoomArea")
 KillArea = NodePath("../KillArea")
 
 [node name="RoomArea" type="CollisionShape2D" parent="."]
+position = Vector2(1028, -257)
 shape = SubResource("RectangleShape2D_yx134")
 
 [node name="icon" type="Sprite2D" parent="."]
-position = Vector2(432, 291)
+position = Vector2(1460, 34)
 scale = Vector2(100, 100)
 texture = ExtResource("1_1p73l")
 
 [node name="player" parent="." instance=ExtResource("2_dqpi3")]
+position = Vector2(1028, -257)
 speed = 800
 jump_speed = 1200
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(1028, -257)
 tile_map_data = PackedByteArray("AAD9/wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAD8/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAALAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD4/wEAAQAAAAAAAAD5/wEAAQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD4//3/AQAAAAAAAAD4//z/AQAAAAAAAAD4//v/AQAAAAAAAAALAP//AQAAAAAAAAALAP7/AQAAAAAAAAAKAP7/AQAAAAAAAAAKAP3/AQAAAAAAAAAKAPz/AQAAAAAAAAAKAPv/AQAAAAAAAAALAPv/AQAAAAAAAAALAPz/AQAAAAAAAAALAP3/AQAAAAAAAAAKAP//AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_kj1tp")
 
 [node name="Item" parent="." instance=ExtResource("5_dqpi3")]
-position = Vector2(-200, -100)
+position = Vector2(828, -357)
 itemType = "pukecandies"
 itemAmount = 10
 
 [node name="KillArea" type="Area2D" parent="."]
+position = Vector2(1028, -257)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
