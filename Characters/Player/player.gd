@@ -6,6 +6,8 @@ extends CharacterBody2D
 @export var damage: int = 1
 @export_range(0.0, 1.0) var friction = 0.1
 @export_range(0.0 , 1.0) var acceleration = 0.25
+@export var dash_speed = 2500
+@export var maxDashTime: float = 0.2
 
 @onready var pivot: Node2D = $Pivot
 @onready var player_state_machine: Node = $PlayerStateMachine

@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://d0ujexjaf0l3q"]
+[gd_scene load_steps=9 format=4 uid="uid://d0ujexjaf0l3q"]
 
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_1p73l"]
 [ext_resource type="PackedScene" uid="uid://b5p30t8ckyx5a" path="res://Characters/Enemies/boss.tscn" id="1_dqpi3"]
 [ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://Characters/Player/player.tscn" id="2_dqpi3"]
-[ext_resource type="PackedScene" uid="uid://dpj2d3dnhsv1h" path="res://World/camera_follower.tscn" id="3_yx134"]
 [ext_resource type="PackedScene" uid="uid://myon780rly2h" path="res://World/item.tscn" id="5_dqpi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx134"]
@@ -46,11 +45,6 @@ jump_speed = 1200
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD9/wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAD8/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAALAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD4/wEAAQAAAAAAAAD5/wEAAQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD4//3/AQAAAAAAAAD4//z/AQAAAAAAAAD4//v/AQAAAAAAAAALAP//AQAAAAAAAAALAP7/AQAAAAAAAAAKAP7/AQAAAAAAAAAKAP3/AQAAAAAAAAAKAPz/AQAAAAAAAAAKAPv/AQAAAAAAAAALAPv/AQAAAAAAAAALAPz/AQAAAAAAAAALAP3/AQAAAAAAAAAKAP//AQAAAAAAAAA=")
 tile_set = SubResource("TileSet_kj1tp")
-
-[node name="CameraFollower" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_yx134")]
-position = Vector2(0, -138)
-player = NodePath("../player")
-lockFollow = false
 
 [node name="Item" parent="." instance=ExtResource("5_dqpi3")]
 position = Vector2(-200, -100)
