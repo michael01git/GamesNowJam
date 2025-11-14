@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://7csw52nfcajk"]
+[gd_scene load_steps=38 format=3 uid="uid://7csw52nfcajk"]
 
 [ext_resource type="Texture2D" uid="uid://bwyi44b8pohhp" path="res://Assets/setting1/Forground.png" id="2_1mqmm"]
 [ext_resource type="Texture2D" uid="uid://be5wsgafjlsfj" path="res://Assets/setting1/Layer 27 copy.png" id="2_m5km0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://d3fffblsy4ub3" path="res://Assets/setting1/Cloud.png" id="5_xpvqr"]
 [ext_resource type="Texture2D" uid="uid://3aioj0ksnd7t" path="res://Assets/setting1/Mountain.png" id="7_xpvqr"]
 [ext_resource type="PackedScene" uid="uid://cwilny50itflm" path="res://Characters/Player/camera_max_x.tscn" id="9_88ud5"]
+[ext_resource type="PackedScene" uid="uid://c12ag1a5ob7hx" path="res://Characters/Enemies/hurtbox.tscn" id="9_d5ncm"]
 [ext_resource type="Texture2D" uid="uid://c46i2ivrs7rqa" path="res://Assets/setting1/Moving1.png" id="9_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://0cdpublc84ht" path="res://Assets/setting1/Moving2.png" id="10_2as6d"]
 [ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://Characters/Enemies/enemy_base.tscn" id="13_pr5qk"]
@@ -87,6 +88,10 @@ size = Vector2(295.25, 70.75)
 
 [node name="Assets" type="Node2D" parent="."]
 
+[node name="HurtBox" parent="Assets" instance=ExtResource("9_d5ncm")]
+position = Vector2(4064.9998, 65.99994)
+scale = Vector2(6.4148498, -1.1696172)
+
 [node name="Background" type="Sprite2D" parent="Assets"]
 position = Vector2(6534, -1254)
 scale = Vector2(1.943775, 1)
@@ -148,7 +153,7 @@ texture = ExtResource("3_1mqmm")
 
 [node name="Doorway" parent="Assets/House" instance=ExtResource("5_pnsy1")]
 position = Vector2(27.5, 440)
-next_scene_path = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/World/bossRoom.tscn"
+next_scene_path = "res://World/bossRoom.tscn"
 
 [node name="Forground" type="Sprite2D" parent="Assets"]
 position = Vector2(3361.5, -1254)
@@ -165,7 +170,7 @@ texture = ExtResource("10_2as6d")
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("2_pnsy1")]
-position = Vector2(272.5, -339)
+position = Vector2(116, -314)
 speed = 800
 cameraZoom = 0.3
 

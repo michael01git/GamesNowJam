@@ -26,7 +26,7 @@ size = Vector2(104, 260)
 
 [node name="Boss" parent="." node_paths=PackedStringArray("RoomSizeCollider", "KillArea") instance=ExtResource("1_dqpi3")]
 position = Vector2(1025, -603)
-next_scene_path = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/Menus/winScene.tscn"
+next_scene_path = "res://Menus/winScene.tscn"
 RoomSizeCollider = NodePath("../RoomArea")
 KillArea = NodePath("../KillArea")
 

@@ -3,7 +3,7 @@ class_name MovementComponent
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("Player")
 
-@export_enum("move_left", "follow_player", "move_between_points") var state: int
+@export_enum("move_left", "follow_player", "move_between_points", "still") var state: int
 @export var enemy: CharacterBody2D
 @export var hitRay: RayCast2D
 @export var downRay: RayCast2D
@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	match state:
 		0:
 			move_left(delta)
+		4:
+			return
 
 func move_left(delta: float):
 	if hitRay.is_colliding() or !downRay.is_colliding():

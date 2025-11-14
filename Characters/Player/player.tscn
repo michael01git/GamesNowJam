@@ -90,7 +90,7 @@ metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="HurtState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("8_yhol4")
-death_scene = "C:/Users/nicom/Documents/Godot/Projects/GamesNowJam/Menus/deathScene.tscn"
+death_scene = "res://Menus/deathScene.tscn"
 metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

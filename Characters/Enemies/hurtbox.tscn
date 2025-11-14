@@ -1,29 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://blcwfmlm0epe2"]
+[gd_scene load_steps=6 format=3 uid="uid://c12ag1a5ob7hx"]
 
-[ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://Characters/Enemies/enemy_base.gd" id="1_8nqel"]
-[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://Characters/Player/States/health_component.gd" id="2_8njqh"]
-[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_edvsq"]
-[ext_resource type="Script" uid="uid://coaylmq540rr7" path="res://Characters/Enemies/movement_component.gd" id="3_yi0xc"]
+[ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://Characters/Enemies/enemy_base.gd" id="1_6lwhq"]
+[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://Characters/Player/States/health_component.gd" id="2_rpn6b"]
+[ext_resource type="Script" uid="uid://coaylmq540rr7" path="res://Characters/Enemies/movement_component.gd" id="3_exfsc"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="4_5w8bv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8njqh"]
 radius = 77.05842
 
-[node name="EnemyBase" type="CharacterBody2D"]
+[node name="HurtBox" type="CharacterBody2D"]
 collision_layer = 4
-script = ExtResource("1_8nqel")
-gravity = 10000
+script = ExtResource("1_6lwhq")
+gravity = 0
+damage_amount = 100
 
 [node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("2_8njqh")
+script = ExtResource("2_rpn6b")
+healthAmount = 1000
+scoreToAdd = 0
+coolDownTime = 1000.0
 metadata/_custom_type_script = "uid://e5jut15hkmv6"
 
 [node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "downRay", "pivot")]
-script = ExtResource("3_yi0xc")
+script = ExtResource("3_exfsc")
+state = 3
 enemy = NodePath("..")
 hitRay = NodePath("../Pivot/HitRay")
 downRay = NodePath("../Pivot/DownRay")
 pivot = NodePath("../Pivot")
-speed = 50000
+speed = 0
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -35,7 +40,7 @@ position = Vector2(-64, 0)
 target_position = Vector2(0, 100)
 
 [node name="Icon" type="Sprite2D" parent="Pivot"]
-texture = ExtResource("2_edvsq")
+texture = ExtResource("4_5w8bv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_8njqh")
