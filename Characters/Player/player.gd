@@ -10,7 +10,7 @@ extends CharacterBody2D
 @export var maxDashTime: float = 0.2
 @export_range(0.0 , 1.0) var cameraZoom = 1.0
 
-
+@onready var camera_min_y: Node2D = get_tree().get_first_node_in_group("CameraMinY")
 @onready var camera_max_x: Node2D = get_tree().get_first_node_in_group("CameraMaxX")
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var pivot: Node2D = $Pivot
@@ -21,6 +21,7 @@ extends CharacterBody2D
 func _ready() -> void:
 	camera_2d.zoom = Vector2(cameraZoom, cameraZoom)
 	if camera_max_x != null:
+		camera_2d.limit_top = camera_min_y.global_position.y
 		camera_2d.limit_right = camera_max_x.global_position.x
 
 # This is a dumb implementation of damage. We scan for all enemies in an area and deal damage if they appear.

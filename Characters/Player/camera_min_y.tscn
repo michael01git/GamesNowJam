@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://83xr2tgc5qqe"]
+
+[node name="CameraMinY" type="Node2D" groups=["CameraMinY"]]

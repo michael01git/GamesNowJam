@@ -9,7 +9,7 @@ class_name MovementComponent
 @export var downRay: RayCast2D
 @export var pivot: Node2D
 @export var speed: int = 100
-
+@export var chase_distance: float = 100
 
 var lastPos: Vector2 = Vector2.ZERO
 var dir: Vector2 = Vector2.LEFT
@@ -18,8 +18,27 @@ func _process(delta: float) -> void:
 	match state:
 		0:
 			move_left(delta)
+		1:
+			follow_player(delta)
 		4:
 			return
+
+func follow_player(delta):
+	if (player.global_position - enemy.global_position).length() < chase_distance:
+		var playerDir = snapped((player.global_position - enemy.global_position).normalized().x, 1)
+		if playerDir == 0:
+			return
+		
+		dir.x = playerDir
+		pivot.scale = Vector2(playerDir, 1)
+		
+		enemy.velocity.x = playerDir * speed * delta
+	else:
+		if hitRay.is_colliding() or !downRay.is_colliding():
+			dir = -dir
+			pivot.scale = Vector2(-pivot.scale.x, 1)
+			
+			enemy.velocity.x = dir.x * speed * delta
 
 func move_left(delta: float):
 	if hitRay.is_colliding() or !downRay.is_colliding():

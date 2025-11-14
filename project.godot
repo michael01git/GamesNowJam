@@ -27,6 +27,7 @@ HealthComponent=""
 Player=""
 CullPoint=""
 CameraMaxX=""
+CameraMinY=""
 
 [input]
 

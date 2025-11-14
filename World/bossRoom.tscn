@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://d0ujexjaf0l3q"]
+[gd_scene load_steps=12 format=4 uid="uid://d0ujexjaf0l3q"]
 
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_1p73l"]
 [ext_resource type="PackedScene" uid="uid://b5p30t8ckyx5a" path="res://Characters/Enemies/boss.tscn" id="1_dqpi3"]
 [ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://Characters/Player/player.tscn" id="2_dqpi3"]
 [ext_resource type="PackedScene" uid="uid://myon780rly2h" path="res://World/item.tscn" id="5_dqpi3"]
+[ext_resource type="Shader" uid="uid://civnkfaouxc3f" path="res://World/jiggle.gdshader" id="5_yx134"]
+[ext_resource type="Script" uid="uid://072r0cns6n8h" path="res://World/jelly_test.gd" id="6_yx134"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx134"]
 
@@ -21,6 +23,13 @@ sources/1 = SubResource("TileSetAtlasSource_cdx27")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqpi3"]
 size = Vector2(104, 260)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_naojm"]
+resource_local_to_scene = true
+shader = ExtResource("5_yx134")
+shader_parameter/uv_mode = false
+shader_parameter/x_factor = 2.0
+shader_parameter/bulge = 0.0
 
 [node name="sidescoller" type="Node2D"]
 
@@ -62,3 +71,9 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
 shape = SubResource("RectangleShape2D_dqpi3")
+
+[node name="JellyTest" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_naojm")
+position = Vector2(1035, -568)
+texture = ExtResource("1_1p73l")
+script = ExtResource("6_yx134")
