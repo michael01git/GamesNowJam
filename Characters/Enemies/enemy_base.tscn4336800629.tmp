@@ -15,7 +15,6 @@ gravity = 10000
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_8njqh")
-healthAmount = 2
 metadata/_custom_type_script = "uid://e5jut15hkmv6"
 
 [node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "pivot")]

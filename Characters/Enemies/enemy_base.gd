@@ -1,18 +1,25 @@
 extends CharacterBody2D
 
-@onready var deathRoll: PackedScene = preload("res://Characters/Enemies/ridgidbody.tscn")
+@onready var culler: CollisionShape2D = get_tree().get_first_node_in_group("CullPoint")
+
+
 @export var gravity = 4000
+@export var damage_amount: int = 1
+@export var do_cull: bool = true
+@export var cullExtraDistance: int = 1000
+
 
 func _process(delta: float) -> void:
 	velocity.y += gravity * delta
 	move_and_slide()
+	
+	if do_cull:
+		cull()
+
+func cull():
+	if (global_position.x+cullExtraDistance) < culler.global_position.x:
+		queue_free()
 
 func _on_health_component_death(attacker: Variant) -> void:
 	print(attacker)
-	
-	var c = deathRoll.instantiate()
-	c.global_position = global_position
-	get_parent().add_child(c)
-	c.launch(attacker)
-	
 	queue_free()

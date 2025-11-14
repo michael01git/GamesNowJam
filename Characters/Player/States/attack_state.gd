@@ -27,7 +27,7 @@ func on_enter():
 	for i in attack_area.get_overlapping_bodies():
 		for c in i.get_children():
 			if c.is_in_group("HealthComponent"):
-				c.dealt_damage(player, 1)
+				c.dealt_damage(player, player.damage)
 				break
 	
 	print("CD")

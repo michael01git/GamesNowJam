@@ -6,7 +6,7 @@ class_name MoveState
 @onready var attack_state: AttackState = $"../AttackState"
 
 func state_input(event: InputEvent):
-	if event.is_action_pressed("ground_attack"):
+	if event.is_action_pressed("attack"):
 		next_state = attack_state
 
 func state_process(delta: float):

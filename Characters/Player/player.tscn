@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddmov0byk4nyt"]
+[gd_scene load_steps=14 format=3 uid="uid://ddmov0byk4nyt"]
 
 [ext_resource type="Script" uid="uid://7u3vo1rhfj4i" path="res://Characters/Player/player.gd" id="1_87lbx"]
 [ext_resource type="Script" uid="uid://dd0omw0aw75k3" path="res://Characters/Player/state_label.gd" id="2_648is"]
@@ -8,7 +8,11 @@
 [ext_resource type="Script" uid="uid://cjavn2idyp2ow" path="res://Characters/Player/States/move_state.gd" id="4_pkcoo"]
 [ext_resource type="Script" uid="uid://b0hfnsuo7dsry" path="res://Characters/Player/States/air_state.gd" id="5_ow5jq"]
 [ext_resource type="Script" uid="uid://b1ygtesn6g0c6" path="res://Characters/Player/States/attack_state.gd" id="6_gw5kw"]
+[ext_resource type="Script" uid="uid://c7qaf4sy8hwkr" path="res://Characters/Player/hurt_state.gd" id="8_yhol4"]
 [ext_resource type="PackedScene" uid="uid://c3su5gusmiif6" path="res://Characters/Player/player_ui.tscn" id="9_eg6gc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yhol4"]
+size = Vector2(156, 157)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pc2ch"]
 size = Vector2(121, 127)
@@ -16,12 +20,21 @@ size = Vector2(121, 127)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gw5kw"]
 size = Vector2(250, 20)
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("1_87lbx")
 friction = 0.2
 acceleration = 0.5
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+priority = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_yhol4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 1.5)
@@ -62,6 +75,10 @@ metadata/_custom_type_script = "uid://crtk80w68agh4"
 [node name="AttackState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("6_gw5kw")
 attack_shape = SubResource("RectangleShape2D_gw5kw")
+metadata/_custom_type_script = "uid://crtk80w68agh4"
+
+[node name="HurtState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("8_yhol4")
 metadata/_custom_type_script = "uid://crtk80w68agh4"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
