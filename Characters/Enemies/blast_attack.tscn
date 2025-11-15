@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://yeeyhhvw17u2"]
+
+[ext_resource type="Script" uid="uid://dowurch86w32a" path="res://Characters/Enemies/blast_attack.gd" id="1_aqkkv"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_hipep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naojm"]
+size = Vector2(4000, 400)
+
+[node name="BlastAttack" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+monitorable = false
+priority = 1
+script = ExtResource("1_aqkkv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3998, 0)
+texture = ExtResource("2_hipep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2000, 0)
+shape = SubResource("RectangleShape2D_naojm")
+
+[node name="BlastTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BlastTimer" to="." method="_on_blast_timer_timeout"]

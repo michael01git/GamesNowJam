@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5p30t8ckyx5a"]
+[gd_scene load_steps=4 format=3 uid="uid://b5p30t8ckyx5a"]
 
 [ext_resource type="Script" uid="uid://nef5fdpest1l" path="res://Characters/Enemies/boss.gd" id="1_qepd0"]
+[ext_resource type="PackedScene" uid="uid://yeeyhhvw17u2" path="res://Characters/Enemies/blast_attack.tscn" id="2_dlkkt"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_xlooi"]
 
 [node name="Boss" type="Node2D"]
 script = ExtResource("1_qepd0")
+blastScene = ExtResource("2_dlkkt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xlooi")
+
+[node name="BlastTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BlastTimer" to="." method="_on_blast_timer_timeout"]

@@ -11,10 +11,15 @@ class_name MovementComponent
 @export var speed: int = 100
 @export var chase_distance: float = 100
 
+@export var anim_sprite: AnimatedSprite2D
+
 var lastPos: Vector2 = Vector2.ZERO
 var dir: Vector2 = Vector2.LEFT
 
 func _process(delta: float) -> void:
+	if anim_sprite != null:
+		animate()
+	
 	match state:
 		0:
 			move_left(delta)
@@ -30,7 +35,7 @@ func follow_player(delta):
 			return
 		
 		dir.x = playerDir
-		pivot.scale = Vector2(playerDir, 1)
+		pivot.scale = Vector2(-playerDir, 1)
 		
 		enemy.velocity.x = playerDir * speed * delta
 	else:
@@ -38,7 +43,8 @@ func follow_player(delta):
 			dir = -dir
 			pivot.scale = Vector2(-pivot.scale.x, 1)
 			
-			enemy.velocity.x = dir.x * speed * delta
+		
+		enemy.velocity.x = dir.x * speed * delta
 
 func move_left(delta: float):
 	if hitRay.is_colliding() or !downRay.is_colliding():
@@ -46,4 +52,9 @@ func move_left(delta: float):
 		pivot.scale = Vector2(-pivot.scale.x, 1)
 	
 	enemy.velocity.x = dir.x * speed * delta
-	
+
+func animate():
+	if 1 < abs(enemy.velocity.x):
+		anim_sprite.play("walk")
+	else:
+		anim_sprite.pause()

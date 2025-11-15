@@ -21,6 +21,11 @@ PlayerStatsManager="*res://Characters/Player/player_stats_manager.gd"
 GameManager="*res://Managers/game_manager.gd"
 AudioManager="*res://Managers/audio_manager.tscn"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [global_group]
 
 HealthComponent=""

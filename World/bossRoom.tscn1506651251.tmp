@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=4 uid="uid://d0ujexjaf0l3q"]
+[gd_scene load_steps=11 format=4 uid="uid://d0ujexjaf0l3q"]
 
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_1p73l"]
 [ext_resource type="PackedScene" uid="uid://b5p30t8ckyx5a" path="res://Characters/Enemies/boss.tscn" id="1_dqpi3"]
 [ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://Characters/Player/player.tscn" id="2_dqpi3"]
-[ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://Characters/Enemies/enemy_base.tscn" id="3_naojm"]
 [ext_resource type="PackedScene" uid="uid://myon780rly2h" path="res://World/item.tscn" id="5_dqpi3"]
 [ext_resource type="Shader" uid="uid://civnkfaouxc3f" path="res://World/jiggle.gdshader" id="5_yx134"]
 [ext_resource type="Script" uid="uid://072r0cns6n8h" path="res://World/jelly_test.gd" id="6_yx134"]
@@ -37,15 +36,10 @@ position = Vector2(1460, 34)
 scale = Vector2(100, 100)
 texture = ExtResource("1_1p73l")
 
-[node name="EnemySpawnPoint" type="Node2D" parent="."]
-position = Vector2(2028, -603)
-
-[node name="Boss" parent="." node_paths=PackedStringArray("KillArea", "enemySpawnPoints") instance=ExtResource("1_dqpi3")]
+[node name="Boss" parent="." node_paths=PackedStringArray("KillArea") instance=ExtResource("1_dqpi3")]
 position = Vector2(1109, -592)
 next_scene_path = "res://Menus/winScene.tscn"
 KillArea = NodePath("../KillArea")
-enemySpawnPoints = [NodePath("../EnemySpawnPoint")]
-enemyScene = ExtResource("3_naojm")
 
 [node name="player" parent="." instance=ExtResource("2_dqpi3")]
 position = Vector2(1028, -257)

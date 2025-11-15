@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://dw5va48r2h5mr"]
+
+[ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://Characters/Enemies/enemy_base.gd" id="1_3t03f"]
+[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://Characters/Player/States/health_component.gd" id="2_vgeg2"]
+[ext_resource type="Script" uid="uid://coaylmq540rr7" path="res://Characters/Enemies/movement_component.gd" id="3_g2r1u"]
+[ext_resource type="Texture2D" uid="uid://bcapsg3e50ytm" path="res://Assets/Gummy bear animate/1.png" id="4_nq6br"]
+[ext_resource type="Texture2D" uid="uid://b8bhockf8ikjm" path="res://Assets/Gummy bear animate/2.png" id="5_n7jtf"]
+[ext_resource type="Texture2D" uid="uid://detrx50plg86n" path="res://Assets/Gummy bear animate/3.png" id="6_1cmy5"]
+[ext_resource type="Texture2D" uid="uid://bgy2gh2qutsfn" path="res://Assets/Gummy bear animate/4.png" id="7_466jo"]
+[ext_resource type="Texture2D" uid="uid://yy7dw2j0yf5n" path="res://Assets/Gummy bear animate/5.png" id="8_l0f3l"]
+[ext_resource type="Texture2D" uid="uid://d4i7ef8fdjios" path="res://Assets/Gummy bear animate/6.png" id="9_qxnhw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r72yb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nq6br")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n7jtf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1cmy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_466jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_l0f3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_qxnhw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iip2c"]
+radius = 70.0
+height = 230.0
+
+[node name="EnemyBase" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_3t03f")
+gravity = 10000
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_vgeg2")
+metadata/_custom_type_script = "uid://e5jut15hkmv6"
+
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "downRay", "pivot")]
+script = ExtResource("3_g2r1u")
+state = 1
+enemy = NodePath("..")
+hitRay = NodePath("../Pivot/HitRay")
+downRay = NodePath("../Pivot/DownRay")
+pivot = NodePath("../Pivot")
+speed = 50000
+chase_distance = 1000.0
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="HitRay" type="RayCast2D" parent="Pivot"]
+target_position = Vector2(-100, 0)
+
+[node name="DownRay" type="RayCast2D" parent="Pivot"]
+position = Vector2(-64, 0)
+target_position = Vector2(0, 100)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+sprite_frames = SubResource("SpriteFrames_r72yb")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_iip2c")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

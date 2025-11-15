@@ -26,10 +26,20 @@ grow_vertical = 2
 script = ExtResource("2_xbekp")
 picArray = Array[CompressedTexture2D]([ExtResource("2_p1qee")])
 textArray = Array[String](["Cool Test"])
-picNode = NodePath("StoryScene/TextureRect")
+picNode = NodePath("TextureRect")
 textNode = NodePath("StoryScene/Label")
 nextButton = NodePath("StoryScene/Button")
 sceneChangerNode = NodePath("..")
+
+[node name="TextureRect" type="TextureRect" parent="StorySceneManager"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("2_p1qee")
 
 [node name="StoryScene" type="VBoxContainer" parent="StorySceneManager"]
 layout_mode = 1
@@ -42,14 +52,10 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="StorySceneManager/StoryScene"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
 text = "Story"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="StorySceneManager/StoryScene"]
-layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("2_p1qee")
 
 [node name="Button" type="Button" parent="StorySceneManager/StoryScene"]
 layout_mode = 2

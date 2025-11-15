@@ -28,9 +28,13 @@ func _ready() -> void:
 func hitbox():
 	if !hurt_state.invulnerable:
 		var e = hit_box.get_overlapping_bodies()
-		
 		if !e.is_empty():
 			deal_damage_to_player(e.front(), e.front().damage_amount)
+		
+		var A = hit_box.get_overlapping_areas()
+		if !A.is_empty():
+			deal_damage_to_player(A.front(), A.front().damage_amount)
+		
 
 func deal_damage_to_player(by: Node, amount: int):
 	print("player rec hurt")

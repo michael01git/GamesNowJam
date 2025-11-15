@@ -179,7 +179,7 @@ texture = ExtResource("10_2as6d")
 [node name="player" parent="." instance=ExtResource("2_pnsy1")]
 position = Vector2(116, -314)
 speed = 800
-cameraZoom = 0.3
+cameraZoom = 0.5
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(3754.5, -78)
