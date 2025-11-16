@@ -25,6 +25,8 @@ func state_process(delta: float):
 func animate(): ## Right manages hurt anim length
 	if hurt_state.invulnerable and hurt_state.time_left > 0.25:
 		pass
+	elif animated_sprite_2d.is_playing() and animated_sprite_2d.animation == "attack":
+		pass
 	elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		animated_sprite_2d.play("walk")
 	elif !Input.is_anything_pressed() and player.is_on_floor() and abs(player.velocity.x) < 0.1:

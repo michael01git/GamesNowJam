@@ -1,6 +1,5 @@
-[gd_scene load_steps=35 format=3 uid="uid://d0ujexjaf0l3q"]
+[gd_scene load_steps=31 format=3 uid="uid://d0ujexjaf0l3q"]
 
-[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_1p73l"]
 [ext_resource type="PackedScene" uid="uid://c12ag1a5ob7hx" path="res://Characters/Enemies/hurtbox.tscn" id="1_6witi"]
 [ext_resource type="Texture2D" uid="uid://rfmpvo60r4pe" path="res://Assets/setting2/Layer 7 copy.png" id="1_476e7"]
 [ext_resource type="Texture2D" uid="uid://ju1f502hgvgj" path="res://Assets/setting2/Layer 15.png" id="1_bbfm7"]
@@ -11,8 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://cfq8eqo7kav8k" path="res://Assets/setting2/Layer 6.png" id="3_dwu3f"]
 [ext_resource type="Texture2D" uid="uid://dt3nbn501recp" path="res://Assets/setting2/Layer 24.png" id="3_p3rm8"]
 [ext_resource type="Texture2D" uid="uid://0uutxipcd46r" path="res://Assets/setting2/Platforms.png" id="5_ngj3d"]
-[ext_resource type="Shader" uid="uid://civnkfaouxc3f" path="res://World/jiggle.gdshader" id="5_yx134"]
-[ext_resource type="Script" uid="uid://072r0cns6n8h" path="res://World/jelly_test.gd" id="6_yx134"]
 [ext_resource type="PackedScene" uid="uid://dnyswgh0sog87" path="res://Characters/Enemies/gummyPuker.tscn" id="10_6witi"]
 [ext_resource type="PackedScene" uid="uid://cwilny50itflm" path="res://Characters/Player/camera_max_x.tscn" id="14_g0kte"]
 [ext_resource type="PackedScene" uid="uid://83xr2tgc5qqe" path="res://Characters/Player/camera_min_y.tscn" id="15_lrfi6"]
@@ -22,15 +19,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t70vb"]
 size = Vector2(283.5, 20)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_naojm"]
-resource_local_to_scene = true
-shader = ExtResource("5_yx134")
-shader_parameter/uv_mode = false
-shader_parameter/x_factor = 2.0
-shader_parameter/bulge = 0.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqpi3"]
-size = Vector2(104, 260)
+size = Vector2(2090, 511)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngj3d"]
 size = Vector2(809, 49)
@@ -73,6 +63,17 @@ normal = Vector2(1, 0)
 
 [node name="sidescoller" type="Node2D"]
 
+[node name="Layer15" type="Sprite2D" parent="."]
+position = Vector2(2962, -1112)
+texture = ExtResource("1_bbfm7")
+
+[node name="Boss" parent="." node_paths=PackedStringArray("KillArea", "enemySpawnPoints") instance=ExtResource("1_dqpi3")]
+position = Vector2(3342, -744)
+next_scene_path = "res://Menus/winScene.tscn"
+KillArea = NodePath("../KillArea")
+enemySpawnPoints = [null]
+enemyScene = ExtResource("10_6witi")
+
 [node name="BG" type="Node2D" parent="."]
 
 [node name="HurtBox" parent="BG" instance=ExtResource("1_6witi")]
@@ -82,10 +83,6 @@ scale = Vector2(8.6992, -1.3157185)
 [node name="HurtBox2" parent="BG" instance=ExtResource("1_6witi")]
 position = Vector2(4840, 24)
 scale = Vector2(8.6992, -1.3157185)
-
-[node name="Layer15" type="Sprite2D" parent="BG"]
-position = Vector2(2962, -1112)
-texture = ExtResource("1_bbfm7")
 
 [node name="Layer16" type="Sprite2D" parent="BG"]
 position = Vector2(8888, -1112)
@@ -163,23 +160,10 @@ position = Vector2(0.25, -83)
 shape = SubResource("RectangleShape2D_t70vb")
 one_way_collision = true
 
-[node name="Boss" parent="." node_paths=PackedStringArray("KillArea", "enemySpawnPoints") instance=ExtResource("1_dqpi3")]
-position = Vector2(3255, -763)
-next_scene_path = "res://Menus/winScene.tscn"
-KillArea = NodePath("../KillArea")
-enemySpawnPoints = [NodePath("")]
-enemyScene = ExtResource("10_6witi")
-
 [node name="player" parent="." instance=ExtResource("2_dqpi3")]
 position = Vector2(608, -388)
 speed = 800
 cameraZoom = 0.6
-
-[node name="JellyTest" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_naojm")
-position = Vector2(2966, -730)
-texture = ExtResource("1_1p73l")
-script = ExtResource("6_yx134")
 
 [node name="KillArea" type="Area2D" parent="."]
 position = Vector2(2959, -419)
@@ -188,6 +172,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
+position = Vector2(362, -5.5)
 shape = SubResource("RectangleShape2D_dqpi3")
 
 [node name="Colliders" type="StaticBody2D" parent="."]

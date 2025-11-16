@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bld4wxytmsyyg"]
+[gd_scene load_steps=5 format=3 uid="uid://bld4wxytmsyyg"]
 
 [ext_resource type="Script" uid="uid://dvtho21q3d6yn" path="res://Menus/menu_script.gd" id="1_c3rbq"]
 [ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_51qt6"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="3_tth52"]
+[ext_resource type="Texture2D" uid="uid://blxteudfwmikd" path="res://Assets/b.png" id="4_51qt6"]
 
 [node name="DeathScene" type="Control" node_paths=PackedStringArray("next_scene_button")]
 layout_mode = 3
@@ -36,7 +37,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_51qt6")
-picArray = Array[CompressedTexture2D]([ExtResource("3_tth52")])
+picArray = Array[CompressedTexture2D]([ExtResource("4_51qt6")])
 textArray = Array[String](["You failed to get out of candyland."])
 picNode = NodePath("../TextureRect")
 textNode = NodePath("StoryScene/Label")

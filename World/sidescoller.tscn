@@ -155,7 +155,7 @@ texture = ExtResource("3_1mqmm")
 
 [node name="Doorway" parent="Assets/House" instance=ExtResource("5_pnsy1")]
 position = Vector2(27.5, 440)
-next_scene_path = "res://World/bossRoom.tscn"
+next_scene_path = "res://Menus/bossEntranceStory.tscn"
 
 [node name="Layer27Copy2" type="Sprite2D" parent="Assets"]
 position = Vector2(3966, -56)

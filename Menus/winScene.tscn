@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://drxk0jp776ouw"]
+[gd_scene load_steps=6 format=3 uid="uid://drxk0jp776ouw"]
 
 [ext_resource type="Script" uid="uid://dvtho21q3d6yn" path="res://Menus/menu_script.gd" id="1_pa7pu"]
 [ext_resource type="AudioStream" uid="uid://cnmh2khc2rbeu" path="res://Assets/audio/2025-11-13-_3_.mp3" id="2_4h4bp"]
 [ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_4qieb"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="3_4h4bp"]
+[ext_resource type="Texture2D" uid="uid://cckw3er1r3oxu" path="res://Assets/IMG_5278.png" id="3_7gwgu"]
 
 [node name="WinScene" type="Control" node_paths=PackedStringArray("next_scene_button")]
 layout_mode = 3
@@ -37,7 +38,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_4qieb")
-picArray = Array[CompressedTexture2D]([ExtResource("3_4h4bp")])
+picArray = Array[CompressedTexture2D]([ExtResource("3_7gwgu")])
 textArray = Array[String](["You awoke back at your home. It was all a dream."])
 picNode = NodePath("../TextureRect")
 textNode = NodePath("StoryScene/Label")
@@ -56,6 +57,7 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "Story"
 horizontal_alignment = 1

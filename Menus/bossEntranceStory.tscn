@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmfs01a782rpp"]
+[gd_scene load_steps=5 format=3 uid="uid://d4cmojact0oca"]
 
-[ext_resource type="Script" uid="uid://dvtho21q3d6yn" path="res://Menus/menu_script.gd" id="1_lp6dq"]
-[ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_xbekp"]
-[ext_resource type="Texture2D" uid="uid://ces5of6pmfka2" path="res://Assets/setting1/Background.png" id="3_0lp2o"]
-[ext_resource type="Texture2D" uid="uid://ddq12e2h7xd8u" path="res://Assets/bg slide1.png" id="3_lsye0"]
+[ext_resource type="Script" uid="uid://dvtho21q3d6yn" path="res://Menus/menu_script.gd" id="1_1eawl"]
+[ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_h4u23"]
+[ext_resource type="Texture2D" uid="uid://i4irpvsa0hv5" path="res://Assets/IMG_5289.png" id="3_h4u23"]
+[ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="3_kitl4"]
 
-[node name="StoryScene" type="Control" node_paths=PackedStringArray("next_scene_button")]
+[node name="bossES" type="Control" node_paths=PackedStringArray("next_scene_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,9 +14,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_lp6dq")
+script = ExtResource("1_1eawl")
 next_scene_button = NodePath("StorySceneManager/StoryScene/Button")
-next_scene_path = "res://World/sidescoller.tscn"
+next_scene_path = "res://World/bossRoom.tscn"
 
 [node name="StorySceneManager" type="Control" parent="." node_paths=PackedStringArray("picNode", "textNode", "nextButton", "sceneChangerNode")]
 layout_mode = 1
@@ -25,9 +25,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_xbekp")
-picArray = Array[CompressedTexture2D]([ExtResource("3_lsye0")])
-textArray = Array[String](["You found a magic book that, while reading it, took you to candy land. To escape, you must defeat the king slime."])
+script = ExtResource("2_h4u23")
+picArray = Array[CompressedTexture2D]([ExtResource("3_h4u23")])
+textArray = Array[String]([""])
 picNode = NodePath("TextureRect")
 textNode = NodePath("StoryScene/Label")
 nextButton = NodePath("StoryScene/Button")
@@ -41,8 +41,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-texture = ExtResource("3_0lp2o")
-expand_mode = 2
+texture = ExtResource("3_kitl4")
 
 [node name="StoryScene" type="VBoxContainer" parent="StorySceneManager"]
 layout_mode = 1
@@ -56,7 +55,6 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-theme_override_colors/font_color = Color(1, 0, 1, 1)
 theme_override_font_sizes/font_size = 64
 text = "Story"
 horizontal_alignment = 1

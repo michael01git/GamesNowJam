@@ -1,12 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://ddmov0byk4nyt"]
+[gd_scene load_steps=26 format=3 uid="uid://ddmov0byk4nyt"]
 
 [ext_resource type="Script" uid="uid://7u3vo1rhfj4i" path="res://Characters/Player/player.gd" id="1_87lbx"]
+[ext_resource type="Texture2D" uid="uid://ccoyujynrtnaq" path="res://Assets/playerSprites/p1.png" id="2_5elsd"]
 [ext_resource type="Script" uid="uid://dd0omw0aw75k3" path="res://Characters/Player/state_label.gd" id="2_648is"]
 [ext_resource type="Texture2D" uid="uid://bxqiyocol5ota" path="res://Assets/playerSprites/IMG_5261.png" id="2_b6jp0"]
 [ext_resource type="Script" uid="uid://bkk4s3kklivq4" path="res://Characters/Player/PSM/player_state_machine.gd" id="2_ilmk5"]
+[ext_resource type="Texture2D" uid="uid://cdhnjvg7ua8ee" path="res://Assets/playerSprites/p2.png" id="3_blwrb"]
 [ext_resource type="Script" uid="uid://cyrulapc13n6j" path="res://Characters/Player/PSM/state_idle.gd" id="3_pkcoo"]
 [ext_resource type="Texture2D" uid="uid://b5hof4wggmm6i" path="res://Assets/playerSprites/frame_0_delay-0.17s.png" id="3_x58m1"]
 [ext_resource type="Texture2D" uid="uid://5w3o8nubufor" path="res://Assets/playerSprites/frame_1_delay-0.17s.png" id="4_b6jp0"]
+[ext_resource type="Texture2D" uid="uid://bex42wcc8tahh" path="res://Assets/playerSprites/p3.png" id="4_hvtal"]
 [ext_resource type="Script" uid="uid://cjavn2idyp2ow" path="res://Characters/Player/States/move_state.gd" id="4_pkcoo"]
 [ext_resource type="Texture2D" uid="uid://efx0i2g06el3" path="res://Assets/playerSprites/frame_2_delay-0.17s.png" id="5_8k5s7"]
 [ext_resource type="Script" uid="uid://b0hfnsuo7dsry" path="res://Characters/Player/States/air_state.gd" id="5_ow5jq"]
@@ -23,6 +26,20 @@ radius = 90.113815
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8fwmd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5elsd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_blwrb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hvtal")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 0.5,
 "texture": ExtResource("2_b6jp0")
@@ -52,6 +69,21 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gw5kw"]
 size = Vector2(250, 100)
 
+[sub_resource type="Animation" id="Animation_b6jp0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Pivot/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_x58m1"]
 resource_name = "attack"
 length = 0.5
@@ -67,21 +99,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 0, 1, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_b6jp0"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Pivot/AnimatedSprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_8k5s7"]
@@ -153,8 +170,9 @@ debug_color = Color(0.9925502, 0, 0.25687188, 0.41960785)
 position = Vector2(11, 22)
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_8fwmd")
-animation = &"hurt"
+animation = &"attack"
 autoplay = "walk"
+frame = 2
 frame_progress = 1.0
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("player", "current_state")]

@@ -22,6 +22,7 @@ func wait(seconds: float) -> void:
 
 func on_enter():
 	pink.play("attack")
+	animated_sprite_2d.play("attack")
 	
 	set_area_shape()
 	await wait(time_to_attack) # We charge up a bit.

@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b5yhc4i22wuam"]
+
+[ext_resource type="Shader" uid="uid://civnkfaouxc3f" path="res://World/jiggle.gdshader" id="1_ubcc6"]
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_ubcc6")
+shader_parameter/uv_mode = true
+shader_parameter/x_factor = 3.0
+shader_parameter/bulge = 0.0
