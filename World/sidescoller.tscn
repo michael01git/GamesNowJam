@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://7csw52nfcajk"]
+[gd_scene load_steps=40 format=3 uid="uid://7csw52nfcajk"]
 
 [ext_resource type="Texture2D" uid="uid://bwyi44b8pohhp" path="res://Assets/setting1/Forground.png" id="2_1mqmm"]
 [ext_resource type="Texture2D" uid="uid://be5wsgafjlsfj" path="res://Assets/setting1/Layer 27 copy.png" id="2_m5km0"]
@@ -13,8 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://c12ag1a5ob7hx" path="res://Characters/Enemies/hurtbox.tscn" id="9_d5ncm"]
 [ext_resource type="Texture2D" uid="uid://c46i2ivrs7rqa" path="res://Assets/setting1/Moving1.png" id="9_g8gv2"]
 [ext_resource type="Texture2D" uid="uid://0cdpublc84ht" path="res://Assets/setting1/Moving2.png" id="10_2as6d"]
-[ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://Characters/Enemies/enemy_base.tscn" id="13_pr5qk"]
 [ext_resource type="PackedScene" uid="uid://83xr2tgc5qqe" path="res://Characters/Player/camera_min_y.tscn" id="14_5qonh"]
+[ext_resource type="PackedScene" uid="uid://ch4jb2jtubyhn" path="res://Characters/Enemies/ice_cream_enemy.tscn" id="16_2t0ih"]
+[ext_resource type="PackedScene" uid="uid://dw5va48r2h5mr" path="res://Characters/Enemies/gummyBear.tscn" id="16_jjfv3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xknys"]
 size = Vector2(2373.25, 210.5)
@@ -68,7 +69,7 @@ size = Vector2(353.9297, 432.375)
 size = Vector2(431, 51.59375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqcou"]
-size = Vector2(295.17285, 51.59375)
+size = Vector2(272.58643, 51.59375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qixkf"]
 size = Vector2(157.79321, 51.59375)
@@ -177,7 +178,7 @@ texture = ExtResource("10_2as6d")
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="player" parent="." instance=ExtResource("2_pnsy1")]
-position = Vector2(116, -314)
+position = Vector2(178, -426)
 speed = 800
 cameraZoom = 0.5
 
@@ -276,7 +277,7 @@ shape = SubResource("RectangleShape2D_dqcou")
 one_way_collision = true
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Ground"]
-position = Vector2(1731.5, -521)
+position = Vector2(1742.793, -521)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_dqcou")
 one_way_collision = true
@@ -321,5 +322,26 @@ position = Vector2(6723, -211)
 [node name="CameraMinY" parent="." instance=ExtResource("14_5qonh")]
 position = Vector2(1, -2211)
 
-[node name="EnemyBase" parent="." instance=ExtResource("13_pr5qk")]
-position = Vector2(1663, -1733)
+[node name="IceCreamEnemy" parent="." instance=ExtResource("16_2t0ih")]
+position = Vector2(3278, -1356)
+
+[node name="EnemyBase" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(1906, -1784)
+
+[node name="GummyBear" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(1481, -364)
+
+[node name="GummyBear2" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(3992, -568)
+
+[node name="GummyBear3" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(6229, -1252)
+
+[node name="GummyBear4" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(1944, -887)
+
+[node name="GummyBear5" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(2749, -1806)
+
+[node name="GummyBear6" parent="." instance=ExtResource("16_jjfv3")]
+position = Vector2(5779, -351)

@@ -25,8 +25,17 @@ func _process(delta: float) -> void:
 			move_left(delta)
 		1:
 			follow_player(delta)
-		4:
-			return
+		3:
+			still_nShoot(delta)
+			
+
+func still_nShoot(delta):
+	var playerDir = snapped((player.global_position - enemy.global_position).normalized().x, 1)
+	if playerDir == 0:
+		return
+	
+	dir.x = playerDir
+	pivot.scale = Vector2(-playerDir, 1)
 
 func follow_player(delta):
 	if (player.global_position - enemy.global_position).length() < chase_distance:
@@ -54,7 +63,9 @@ func move_left(delta: float):
 	enemy.velocity.x = dir.x * speed * delta
 
 func animate():
-	if 1 < abs(enemy.velocity.x):
+	if state == 3:
+		return
+	elif 1 < abs(enemy.velocity.x):
 		anim_sprite.play("walk")
 	else:
 		anim_sprite.pause()

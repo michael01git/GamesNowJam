@@ -10,6 +10,7 @@ extends CharacterBody2D
 @export var maxDashTime: float = 0.2
 @export_range(0.0 , 1.0) var cameraZoom = 1.0
 
+
 @onready var camera_min_y: Node2D = get_tree().get_first_node_in_group("CameraMinY")
 @onready var camera_max_x: Node2D = get_tree().get_first_node_in_group("CameraMaxX")
 @onready var camera_2d: Camera2D = $Camera2D
@@ -17,6 +18,7 @@ extends CharacterBody2D
 @onready var player_state_machine: Node = $PlayerStateMachine
 @onready var hurt_state: Node = $PlayerStateMachine/HurtState
 @onready var hit_box: Area2D = $HitBox
+@onready var animated_sprite_2d: AnimatedSprite2D = $Pivot/AnimatedSprite2D
 
 func _ready() -> void:
 	camera_2d.zoom = Vector2(cameraZoom, cameraZoom)
@@ -38,6 +40,9 @@ func hitbox():
 
 func deal_damage_to_player(by: Node, amount: int):
 	print("player rec hurt")
+	
+	
+	
 	hurt_state.base(by, amount)
 	player_state_machine.switch_state(hurt_state)
 
@@ -62,5 +67,3 @@ func _process(delta: float) -> void:
 		pivot.scale = Vector2(1,1)
 	elif velocity.x < 0:
 		pivot.scale = Vector2(-1,1)
-	
-	

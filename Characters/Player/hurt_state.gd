@@ -1,8 +1,9 @@
 extends State
 class_name HurtState
 
-@export var invCooldown: float = 1
+
 @export_multiline var death_scene: String
+@export var invCooldown: float = 1
 
 var hurtBy: Node
 var hurtAmount: int
@@ -17,6 +18,8 @@ func base(by: Node, amount: int):
 	hurtAmount = amount
 
 func on_enter():
+	animated_sprite_2d.play("hurt")
+	
 	PlayerStatsManager.add_to_stat("health", -hurtAmount)
 	if PlayerStatsManager.get_stat("health") <= 0:
 		GameManager.switch_Scene(death_scene)

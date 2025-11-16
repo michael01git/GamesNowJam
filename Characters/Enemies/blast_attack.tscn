@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://yeeyhhvw17u2"]
+[gd_scene load_steps=5 format=3 uid="uid://yeeyhhvw17u2"]
 
 [ext_resource type="Script" uid="uid://dowurch86w32a" path="res://Characters/Enemies/blast_attack.gd" id="1_aqkkv"]
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_hipep"]
+[ext_resource type="Texture2D" uid="uid://ces5of6pmfka2" path="res://Assets/setting1/Background.png" id="3_34a4e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_naojm"]
 size = Vector2(4000, 400)
@@ -23,5 +24,12 @@ position = Vector2(2000, 0)
 shape = SubResource("RectangleShape2D_naojm")
 
 [node name="BlastTimer" type="Timer" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 0.29411766)
+show_behind_parent = true
+position = Vector2(1986.9999, 4.000001)
+scale = Vector2(0.60438895, 0.153064)
+texture = ExtResource("3_34a4e")
 
 [connection signal="timeout" from="BlastTimer" to="." method="_on_blast_timer_timeout"]

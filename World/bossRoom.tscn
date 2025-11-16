@@ -1,27 +1,26 @@
-[gd_scene load_steps=12 format=4 uid="uid://d0ujexjaf0l3q"]
+[gd_scene load_steps=35 format=3 uid="uid://d0ujexjaf0l3q"]
 
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="1_1p73l"]
+[ext_resource type="PackedScene" uid="uid://c12ag1a5ob7hx" path="res://Characters/Enemies/hurtbox.tscn" id="1_6witi"]
+[ext_resource type="Texture2D" uid="uid://rfmpvo60r4pe" path="res://Assets/setting2/Layer 7 copy.png" id="1_476e7"]
+[ext_resource type="Texture2D" uid="uid://ju1f502hgvgj" path="res://Assets/setting2/Layer 15.png" id="1_bbfm7"]
 [ext_resource type="PackedScene" uid="uid://b5p30t8ckyx5a" path="res://Characters/Enemies/boss.tscn" id="1_dqpi3"]
+[ext_resource type="Texture2D" uid="uid://puc0wteiworu" path="res://Assets/setting2/forground.png" id="2_bbfm7"]
 [ext_resource type="PackedScene" uid="uid://ddmov0byk4nyt" path="res://Characters/Player/player.tscn" id="2_dqpi3"]
-[ext_resource type="PackedScene" uid="uid://blcwfmlm0epe2" path="res://Characters/Enemies/enemy_base.tscn" id="3_naojm"]
-[ext_resource type="PackedScene" uid="uid://myon780rly2h" path="res://World/item.tscn" id="5_dqpi3"]
+[ext_resource type="Texture2D" uid="uid://tym5hwpel1xx" path="res://Assets/setting2/Layer 25.png" id="2_p3rm8"]
+[ext_resource type="Texture2D" uid="uid://cfq8eqo7kav8k" path="res://Assets/setting2/Layer 6.png" id="3_dwu3f"]
+[ext_resource type="Texture2D" uid="uid://dt3nbn501recp" path="res://Assets/setting2/Layer 24.png" id="3_p3rm8"]
+[ext_resource type="Texture2D" uid="uid://0uutxipcd46r" path="res://Assets/setting2/Platforms.png" id="5_ngj3d"]
 [ext_resource type="Shader" uid="uid://civnkfaouxc3f" path="res://World/jiggle.gdshader" id="5_yx134"]
 [ext_resource type="Script" uid="uid://072r0cns6n8h" path="res://World/jelly_test.gd" id="6_yx134"]
+[ext_resource type="PackedScene" uid="uid://dnyswgh0sog87" path="res://Characters/Enemies/gummyPuker.tscn" id="10_6witi"]
+[ext_resource type="PackedScene" uid="uid://cwilny50itflm" path="res://Characters/Player/camera_max_x.tscn" id="14_g0kte"]
+[ext_resource type="PackedScene" uid="uid://83xr2tgc5qqe" path="res://Characters/Player/camera_min_y.tscn" id="15_lrfi6"]
+[ext_resource type="Texture2D" uid="uid://c46i2ivrs7rqa" path="res://Assets/setting1/Moving1.png" id="17_vmv66"]
+[ext_resource type="PackedScene" uid="uid://ch4jb2jtubyhn" path="res://Characters/Enemies/ice_cream_enemy.tscn" id="18_4bfqq"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cdx27"]
-texture = ExtResource("1_1p73l")
-texture_region_size = Vector2i(128, 128)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-
-[sub_resource type="TileSet" id="TileSet_kj1tp"]
-tile_size = Vector2i(128, 128)
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 0
-sources/1 = SubResource("TileSetAtlasSource_cdx27")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqpi3"]
-size = Vector2(104, 260)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t70vb"]
+size = Vector2(283.5, 20)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_naojm"]
 resource_local_to_scene = true
@@ -30,40 +29,160 @@ shader_parameter/uv_mode = false
 shader_parameter/x_factor = 2.0
 shader_parameter/bulge = 0.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqpi3"]
+size = Vector2(104, 260)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngj3d"]
+size = Vector2(809, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrfi6"]
+size = Vector2(519.875, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g0kte"]
+size = Vector2(729.75, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6witi"]
+size = Vector2(1266.9375, 242.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmv66"]
+size = Vector2(2139.4688, 242.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bfqq"]
+size = Vector2(2139.4688, 242.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m41v"]
+size = Vector2(289.8672, 54.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wi26l"]
+size = Vector2(439.9336, 54.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqr67"]
+size = Vector2(432.9336, 54.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3xds"]
+size = Vector2(597.4668, 54.625)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6b7ks"]
+size = Vector2(285.7035, 54.625)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g0kte"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ngj3d"]
+normal = Vector2(1, 0)
+
 [node name="sidescoller" type="Node2D"]
 
-[node name="icon" type="Sprite2D" parent="."]
-position = Vector2(1460, 34)
-scale = Vector2(100, 100)
-texture = ExtResource("1_1p73l")
+[node name="BG" type="Node2D" parent="."]
 
-[node name="EnemySpawnPoint" type="Node2D" parent="."]
-position = Vector2(2028, -603)
+[node name="HurtBox" parent="BG" instance=ExtResource("1_6witi")]
+position = Vector2(1774, 28.000002)
+scale = Vector2(8.6992, -1.3157185)
+
+[node name="HurtBox2" parent="BG" instance=ExtResource("1_6witi")]
+position = Vector2(4840, 24)
+scale = Vector2(8.6992, -1.3157185)
+
+[node name="Layer15" type="Sprite2D" parent="BG"]
+position = Vector2(2962, -1112)
+texture = ExtResource("1_bbfm7")
+
+[node name="Layer16" type="Sprite2D" parent="BG"]
+position = Vector2(8888, -1112)
+texture = ExtResource("1_bbfm7")
+
+[node name="Layer17" type="Sprite2D" parent="BG"]
+position = Vector2(-2963, -1112)
+texture = ExtResource("1_bbfm7")
+
+[node name="Layer25" type="Sprite2D" parent="BG"]
+position = Vector2(2964, -1112)
+texture = ExtResource("2_p3rm8")
+
+[node name="Layer7Copy" type="Sprite2D" parent="BG"]
+position = Vector2(3393, -57)
+texture = ExtResource("1_476e7")
+
+[node name="Layer24" type="Sprite2D" parent="BG"]
+position = Vector2(588, -656)
+texture = ExtResource("3_p3rm8")
+
+[node name="Platforms" type="Sprite2D" parent="BG"]
+position = Vector2(2957, -738)
+texture = ExtResource("5_ngj3d")
+
+[node name="Moving3" type="Sprite2D" parent="BG"]
+position = Vector2(4649, -639)
+texture = ExtResource("17_vmv66")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG/Moving3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Moving3/StaticBody2D"]
+position = Vector2(0.25, -83)
+shape = SubResource("RectangleShape2D_t70vb")
+one_way_collision = true
+
+[node name="Moving4" type="Sprite2D" parent="BG"]
+position = Vector2(4020, -975)
+texture = ExtResource("17_vmv66")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG/Moving4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Moving4/StaticBody2D"]
+position = Vector2(0.25, -83)
+shape = SubResource("RectangleShape2D_t70vb")
+one_way_collision = true
+
+[node name="Forground" type="Sprite2D" parent="BG"]
+position = Vector2(2963, -1112)
+texture = ExtResource("2_bbfm7")
+
+[node name="Moving2" type="Sprite2D" parent="BG"]
+position = Vector2(3855, -1201)
+texture = ExtResource("17_vmv66")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG/Moving2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Moving2/StaticBody2D"]
+position = Vector2(0.25, -83)
+shape = SubResource("RectangleShape2D_t70vb")
+one_way_collision = true
+
+[node name="Layer6" type="Sprite2D" parent="BG"]
+position = Vector2(545, -712)
+texture = ExtResource("3_dwu3f")
+
+[node name="Moving1" type="Sprite2D" parent="BG"]
+position = Vector2(5042, -489)
+texture = ExtResource("17_vmv66")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BG/Moving1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Moving1/StaticBody2D"]
+position = Vector2(0.25, -83)
+shape = SubResource("RectangleShape2D_t70vb")
+one_way_collision = true
 
 [node name="Boss" parent="." node_paths=PackedStringArray("KillArea", "enemySpawnPoints") instance=ExtResource("1_dqpi3")]
-position = Vector2(1109, -592)
+position = Vector2(3255, -763)
 next_scene_path = "res://Menus/winScene.tscn"
 KillArea = NodePath("../KillArea")
-enemySpawnPoints = [NodePath("../EnemySpawnPoint")]
-enemyScene = ExtResource("3_naojm")
+enemySpawnPoints = [NodePath("")]
+enemyScene = ExtResource("10_6witi")
 
 [node name="player" parent="." instance=ExtResource("2_dqpi3")]
-position = Vector2(1028, -257)
+position = Vector2(608, -388)
 speed = 800
-jump_speed = 1200
+cameraZoom = 0.6
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-position = Vector2(1028, -257)
-tile_map_data = PackedByteArray("AAD9/wEAAQAAAAAAAAD+/wEAAQAAAAAAAAD//wEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAEAAQAAAAAAAAACAAEAAQAAAAAAAAADAAEAAQAAAAAAAAD8/wEAAQAAAAAAAAD7/wEAAQAAAAAAAAAEAAEAAQAAAAAAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAAHAAEAAQAAAAAAAAAIAAEAAQAAAAAAAAAJAAEAAQAAAAAAAAAKAAEAAQAAAAAAAAALAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAQAAAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQAAAAAAAAAKAAAAAQAAAAAAAAALAAAAAQAAAAAAAAD6/wEAAQAAAAAAAAD6/wAAAQAAAAAAAAD5/wAAAQAAAAAAAAD4/wAAAQAAAAAAAAD4/wEAAQAAAAAAAAD5/wEAAQAAAAAAAAD4////AQAAAAAAAAD4//7/AQAAAAAAAAD4//3/AQAAAAAAAAD4//z/AQAAAAAAAAD4//v/AQAAAAAAAAALAP//AQAAAAAAAAALAP7/AQAAAAAAAAAKAP7/AQAAAAAAAAAKAP3/AQAAAAAAAAAKAPz/AQAAAAAAAAAKAPv/AQAAAAAAAAALAPv/AQAAAAAAAAALAPz/AQAAAAAAAAALAP3/AQAAAAAAAAAKAP//AQAAAAAAAAA=")
-tile_set = SubResource("TileSet_kj1tp")
-
-[node name="Item" parent="." instance=ExtResource("5_dqpi3")]
-position = Vector2(828, -357)
-itemType = "pukecandies"
-itemAmount = 10
+[node name="JellyTest" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_naojm")
+position = Vector2(2966, -730)
+texture = ExtResource("1_1p73l")
+script = ExtResource("6_yx134")
 
 [node name="KillArea" type="Area2D" parent="."]
-position = Vector2(1028, -257)
+position = Vector2(2959, -419)
 collision_layer = 0
 collision_mask = 2
 monitorable = false
@@ -71,8 +190,100 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillArea"]
 shape = SubResource("RectangleShape2D_dqpi3")
 
-[node name="JellyTest" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_naojm")
-position = Vector2(1035, -568)
-texture = ExtResource("1_1p73l")
-script = ExtResource("6_yx134")
+[node name="Colliders" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(589.5, -590)
+shape = SubResource("RectangleShape2D_ngj3d")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(582.0625, -1056)
+shape = SubResource("RectangleShape2D_lrfi6")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(575.125, -893)
+shape = SubResource("RectangleShape2D_g0kte")
+one_way_collision = true
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(633.53125, -91)
+shape = SubResource("RectangleShape2D_6witi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(3317.2656, -81)
+shape = SubResource("RectangleShape2D_vmv66")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(6387, -81)
+shape = SubResource("RectangleShape2D_4bfqq")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(4732.0664, -415.3125)
+shape = SubResource("RectangleShape2D_2m41v")
+one_way_collision = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(1548, -681)
+shape = SubResource("RectangleShape2D_2m41v")
+one_way_collision = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(1843, -942)
+shape = SubResource("RectangleShape2D_2m41v")
+one_way_collision = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(2448.0332, -899)
+shape = SubResource("RectangleShape2D_wi26l")
+one_way_collision = true
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(4172.533, -813)
+shape = SubResource("RectangleShape2D_fqr67")
+one_way_collision = true
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(3329.2666, -1362)
+shape = SubResource("RectangleShape2D_y3xds")
+one_way_collision = true
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(1189.6293, -402.00577)
+rotation = -0.26179937
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_6b7ks")
+one_way_collision = true
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(5926, -415)
+shape = SubResource("WorldBoundaryShape2D_g0kte")
+one_way_collision = true
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Colliders"]
+position = Vector2(0, -316)
+shape = SubResource("WorldBoundaryShape2D_ngj3d")
+one_way_collision = true
+
+[node name="CameraMaxX" parent="." instance=ExtResource("14_g0kte")]
+position = Vector2(5926, -214)
+
+[node name="CameraMinY" parent="." instance=ExtResource("15_lrfi6")]
+position = Vector2(0, -2117)
+
+[node name="GummyPuke" parent="." instance=ExtResource("10_6witi")]
+position = Vector2(2451, -1049)
+
+[node name="GummyPuke2" parent="." instance=ExtResource("10_6witi")]
+position = Vector2(3346, -1515)
+
+[node name="GummyPuke3" parent="." instance=ExtResource("10_6witi")]
+position = Vector2(4173, -981)
+
+[node name="IceCreamEnemy" parent="." instance=ExtResource("18_4bfqq")]
+position = Vector2(5485, -403)
+
+[node name="IceCreamEnemy2" parent="." instance=ExtResource("18_4bfqq")]
+position = Vector2(583, -1286)

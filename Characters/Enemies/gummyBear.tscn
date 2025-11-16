@@ -40,7 +40,7 @@ animations = [{
 radius = 70.0
 height = 230.0
 
-[node name="EnemyBase" type="CharacterBody2D"]
+[node name="GummyBear" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_3t03f")
 gravity = 10000
@@ -49,15 +49,15 @@ gravity = 10000
 script = ExtResource("2_vgeg2")
 metadata/_custom_type_script = "uid://e5jut15hkmv6"
 
-[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "downRay", "pivot")]
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "downRay", "pivot", "anim_sprite")]
 script = ExtResource("3_g2r1u")
-state = 1
 enemy = NodePath("..")
 hitRay = NodePath("../Pivot/HitRay")
 downRay = NodePath("../Pivot/DownRay")
 pivot = NodePath("../Pivot")
 speed = 50000
 chase_distance = 1000.0
+anim_sprite = NodePath("../Pivot/AnimatedSprite2D")
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -66,7 +66,7 @@ target_position = Vector2(-100, 0)
 
 [node name="DownRay" type="RayCast2D" parent="Pivot"]
 position = Vector2(-64, 0)
-target_position = Vector2(0, 100)
+target_position = Vector2(1, 139)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
 sprite_frames = SubResource("SpriteFrames_r72yb")

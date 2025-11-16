@@ -5,7 +5,8 @@ extends Node
 @export var player: CharacterBody2D
 @export var current_state: State
 
-@onready var animation_tree: AnimationTree = $"../AnimationTree"
+@onready var animated_sprite_2d: AnimatedSprite2D = $"../Pivot/AnimatedSprite2D"
+
 @onready var attack_area: Area2D = $"../Pivot/AttackArea"
 
 func _ready() -> void:
@@ -13,7 +14,7 @@ func _ready() -> void:
 	for i in get_children():
 		if i is State:
 			i.player = player
-			i.animation_tree = animation_tree
+			i.animated_sprite_2d = animated_sprite_2d
 			i.attack_area = attack_area
 		else:
 			push_warning("StateMachine has a non state in it.")

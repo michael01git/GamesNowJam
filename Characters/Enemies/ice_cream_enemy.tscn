@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://ch4jb2jtubyhn"]
+
+[ext_resource type="Script" uid="uid://cstc1dsflqr5" path="res://Characters/Enemies/enemy_base.gd" id="1_flluh"]
+[ext_resource type="PackedScene" uid="uid://yriicqgw6ju2" path="res://Characters/Enemies/turret.tscn" id="2_0qgra"]
+[ext_resource type="Script" uid="uid://e5jut15hkmv6" path="res://Characters/Player/States/health_component.gd" id="2_1a7es"]
+[ext_resource type="Script" uid="uid://coaylmq540rr7" path="res://Characters/Enemies/movement_component.gd" id="3_0qgra"]
+[ext_resource type="Texture2D" uid="uid://dsjefayg2fogg" path="res://Assets/enemy2/enemy2/1.png" id="5_0qgra"]
+[ext_resource type="Texture2D" uid="uid://2i3yjuo8g86r" path="res://Assets/enemy2/enemy2/2.png" id="6_6tce5"]
+[ext_resource type="Texture2D" uid="uid://cpifbxcec4yb6" path="res://Assets/enemy2/enemy2/3.png" id="7_idnmt"]
+[ext_resource type="Texture2D" uid="uid://bvwulirf5hbxl" path="res://Assets/enemy2/enemy2/4.png" id="8_voubq"]
+[ext_resource type="Texture2D" uid="uid://ib03msw8e35h" path="res://Assets/enemy2/enemy2/5.png" id="9_qnffl"]
+[ext_resource type="Texture2D" uid="uid://dbghwvsj3srbp" path="res://Assets/enemy2/enemy2/6.png" id="10_tmjg5"]
+[ext_resource type="Texture2D" uid="uid://04lovrwafwg2" path="res://Assets/enemy2/enemy2/7.png" id="11_vcd7l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r72yb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_0qgra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6tce5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_idnmt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_voubq")
+}, {
+"duration": 0.7,
+"texture": ExtResource("9_qnffl")
+}, {
+"duration": 0.7,
+"texture": ExtResource("10_tmjg5")
+}, {
+"duration": 0.7,
+"texture": ExtResource("11_vcd7l")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iip2c"]
+radius = 136.0
+height = 354.0
+
+[node name="IceCreamEnemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_flluh")
+gravity = 10000
+
+[node name="Turret" parent="." node_paths=PackedStringArray("animation") instance=ExtResource("2_0qgra")]
+animation = NodePath("../Pivot/AnimatedSprite2D")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_1a7es")
+metadata/_custom_type_script = "uid://e5jut15hkmv6"
+
+[node name="MovementComponent" type="Node" parent="." node_paths=PackedStringArray("enemy", "hitRay", "downRay", "pivot")]
+script = ExtResource("3_0qgra")
+state = 3
+enemy = NodePath("..")
+hitRay = NodePath("../Pivot/HitRay")
+downRay = NodePath("../Pivot/DownRay")
+pivot = NodePath("../Pivot")
+speed = 50000
+chase_distance = 1000.0
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="HitRay" type="RayCast2D" parent="Pivot"]
+target_position = Vector2(-100, 0)
+
+[node name="DownRay" type="RayCast2D" parent="Pivot"]
+position = Vector2(-64, 0)
+target_position = Vector2(0, 119)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot"]
+sprite_frames = SubResource("SpriteFrames_r72yb")
+animation = &"shoot"
+frame = 5
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_iip2c")
+
+[connection signal="death" from="HealthComponent" to="." method="_on_health_component_death"]

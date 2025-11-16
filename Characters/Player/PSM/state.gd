@@ -2,7 +2,7 @@ extends Node
 class_name State
 
 var player: CharacterBody2D
-var animation_tree: AnimationTree
+var animated_sprite_2d: AnimatedSprite2D
 var attack_area: Area2D
 
 ## The next state. StateMachine looks at this and if its not null changes to that state.
