@@ -26,9 +26,14 @@ func switchScene():
 	sceneChangerNode.change_scene()
 
 func button_pressed():
+	emit_signal("lastShown")
+	return
+
+func unused():
 	if textArray.size() == current_slide:
 		emit_signal("lastShown")
 	else:
+		
 		current_slide += 1
 		picNode.texture = picArray.get(current_slide)
 		textNode.text = textArray.get(current_slide)

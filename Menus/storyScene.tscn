@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://du44k1k3hqqvo" path="res://Assets/icon.svg" id="2_p1qee"]
 [ext_resource type="Script" uid="uid://dukxklkfcjqfw" path="res://Menus/story_scene_manager.gd" id="2_xbekp"]
 
-[node name="StoryScene" type="Control"]
+[node name="StoryScene" type="Control" node_paths=PackedStringArray("next_scene_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_lp6dq")
+next_scene_button = NodePath("StorySceneManager/StoryScene/Button")
 next_scene_path = "res://World/sidescoller.tscn"
 
 [node name="StorySceneManager" type="Control" parent="." node_paths=PackedStringArray("picNode", "textNode", "nextButton", "sceneChangerNode")]
@@ -25,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_xbekp")
 picArray = Array[CompressedTexture2D]([ExtResource("2_p1qee")])
-textArray = Array[String](["Cool Test"])
+textArray = Array[String](["You found a magic book that, while reading it, took you to candy land. To escape, you must defeat the king slime."])
 picNode = NodePath("TextureRect")
 textNode = NodePath("StoryScene/Label")
 nextButton = NodePath("StoryScene/Button")
@@ -53,11 +54,15 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/font_size = 64
 text = "Story"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="Button" type="Button" parent="StorySceneManager/StoryScene"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Next"
+theme_override_font_sizes/font_size = 64
+text = "Next
+"

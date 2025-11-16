@@ -12,12 +12,14 @@ var invulnerable: bool = false
 var time_left: float = 0
 
 @onready var move_state: MoveState = $"../MoveState"
+@onready var red: AnimationPlayer = $Red
 
 func base(by: Node, amount: int):
 	hurtBy = by
 	hurtAmount = amount
 
 func on_enter():
+	red.play("hurt")
 	animated_sprite_2d.play("hurt")
 	
 	PlayerStatsManager.add_to_stat("health", -hurtAmount)
